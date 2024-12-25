@@ -35,17 +35,22 @@ export default function Loading({ type }) {
         </div>
       );
     case 'skills':
-      return (
-        <div className="flex flex-col items-center justify-center min-h-screen text-center space-y-6">
-          {/* Skeleton pour le titre des compétences */}
-          <div className="w-2/3 h-8 bg-gray-300 animate-pulse mx-auto rounded-md"></div>
+  return (
+  <div className="flex flex-col items-center min-h-screen text-center space-y-6">
+    {/* Skeleton pour le titre des compétences */}
+    <div className="w-3/4 h-12 bg-gray-300 animate-pulse mx-auto rounded-md mb-6"></div> {/* Taille agrandie pour le titre */}
 
-          {/* Skeleton pour les compétences */}
-          <div className="w-3/4 h-6 bg-gray-300 animate-pulse mb-4 rounded-md"></div>
-          <div className="w-3/4 h-6 bg-gray-300 animate-pulse mb-4 rounded-md"></div>
-          <div className="w-3/4 h-6 bg-gray-300 animate-pulse rounded-md"></div>
-        </div>
-      );
+    {/* Conteneur pour les compétences en 3 colonnes */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full px-4">
+      {/* Skeleton pour les compétences */}
+      <div className="w-full h-40 bg-gray-300 animate-pulse rounded-md"></div> {/* Taille agrandie */}
+      <div className="w-full h-40 bg-gray-300 animate-pulse rounded-md"></div> {/* Taille agrandie */}
+      <div className="w-full h-40 bg-gray-300 animate-pulse rounded-md"></div> {/* Taille agrandie */}
+    </div>
+  </div>
+);
+
+
     case 'contact':
       return (
         <div className="flex flex-col items-center min-h-screen text-center space-y-6">
