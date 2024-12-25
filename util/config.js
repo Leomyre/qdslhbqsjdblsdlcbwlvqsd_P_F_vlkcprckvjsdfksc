@@ -1,6 +1,5 @@
 const UrlConfig = {
-  //apiBaseUrl: 'http://localhost:8000',
-  apiBaseUrl: 'https://backportfolio-leomyre.onrender.com', // Remplacez par votre URL
+  apiBaseUrl: process.env.NEXT_PUBLIC_API_URL, // Utilise la variable d'environnement directement
 };
 
 export default UrlConfig;
