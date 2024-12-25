@@ -29,8 +29,8 @@ const BackgroundAnimation = () => {
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         radius: Math.random() * 2 + 1,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5
+        vx: (Math.random() - 0.5) * 2,
+        vy: (Math.random() - 0.5) * 2
       })
     }
 
