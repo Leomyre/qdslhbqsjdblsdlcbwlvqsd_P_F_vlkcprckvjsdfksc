@@ -29,7 +29,7 @@ export default function Contact() {
   }, [])
 
   if (loading) {
-    return <Loading type="contact"/>
+    return <Loading type= "contact"/>
   }
 
   if (error) {
