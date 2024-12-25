@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import UrlConfig from '../../util/config';
+import Loading from '../../components/Loading';
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
@@ -21,28 +22,8 @@ export default function Projects() {
   }, []);
 
   if (loading) {
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-center space-y-6">
-      {/* Skeleton pour l'image */}
-      <div className="w-64 h-64 rounded-full bg-gray-300 animate-pulse mb-6"></div>
-
-      {/* Skeleton pour le titre */}
-      <div className="w-1/2 h-8 bg-gray-300 animate-pulse mx-auto"></div>
-
-      {/* Skeleton pour le nom */}
-      <div className="w-1/3 h-6 bg-gray-300 animate-pulse mx-auto"></div>
-
-      {/* Skeleton pour la bio */}
-      <div className="w-3/4 h-4 bg-gray-300 animate-pulse mx-auto"></div>
-
-      {/* Skeleton pour les boutons */}
-      <div className="space-x-4">
-        <div className="w-36 h-10 bg-gray-300 animate-pulse rounded-full"></div>
-        <div className="w-36 h-10 bg-gray-300 animate-pulse rounded-full"></div>
-      </div>
-    </div>
-  );
-}
+      return <Loading type="projects"/>
+    }
 
   return (
     <div className="bg-purple-900/30 p-8 rounded-lg backdrop-filter backdrop-blur-lg shadow-xl border border-purple-500/20">
