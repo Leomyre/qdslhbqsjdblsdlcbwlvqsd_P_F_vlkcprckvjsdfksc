@@ -15,31 +15,51 @@ const BackgroundAnimation = () => {
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
 
-    const binary = '10'
-    const fontSize = 10
-    const columns = canvas.width / fontSize
+    const particles: Array<{
+      x: number
+      y: number
+      radius: number
+      vx: number
+      vy: number
+    }> = []
 
-    const drops: number[] = []
-    for (let i = 0; i < columns; i++) {
-      drops[i] = 1
+    // Create particles
+    for (let i = 0; i < 50; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 2 + 1,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5
+      })
     }
 
     function draw() {
-      ctx.fillStyle = 'rgba(0, 20, 40, 0.05)'
+      ctx.fillStyle = 'rgba(20, 0, 30, 0.1)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-      ctx.fillStyle = '#4A90E2'
-      ctx.font = `${fontSize}px monospace`
+      particles.forEach(particle => {
+        ctx.beginPath()
+        const gradient = ctx.createRadialGradient(
+          particle.x,
+          particle.y,
+          0,
+          particle.x,
+          particle.y,
+          particle.radius
+        )
+        gradient.addColorStop(0, 'rgba(106, 27, 154, 0.5)')
+        gradient.addColorStop(1, 'rgba(0, 150, 136, 0)')
+        ctx.fillStyle = gradient
+        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
+        ctx.fill()
 
-      for (let i = 0; i < drops.length; i++) {
-        const text = binary[Math.floor(Math.random() * binary.length)]
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize)
+        particle.x += particle.vx
+        particle.y += particle.vy
 
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0
-        }
-        drops[i]++
-      }
+        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1
+        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1
+      })
     }
 
     const interval = setInterval(draw, 33)
