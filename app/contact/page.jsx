@@ -66,7 +66,18 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="text-purple-300 hover:text-emerald-400 transition-colors duration-300"
             >
-              {contact.github}
+              GitHub de Léomyre
+            </a>
+          </p>
+          <p className="flex items-center">
+            <strong className="text-emerald-300 mr-2">Facebook:</strong>
+            <a
+              href={contact.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-purple-300 hover:text-emerald-400 transition-colors duration-300"
+            >
+              Léomyre
             </a>
           </p>
         </div>

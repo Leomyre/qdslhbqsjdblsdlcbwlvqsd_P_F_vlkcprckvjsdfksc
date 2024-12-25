@@ -18,7 +18,9 @@ export default function Skills() {
         return response.json();
       })
       .then(data => {
-        setSkills(data);
+        // Tri des compétences par niveau (du plus élevé au plus bas)
+        const sortedSkills = data.sort((a, b) => b.level - a.level);
+        setSkills(sortedSkills);
         setLoading(false);
       })
       .catch(error => {
@@ -29,8 +31,8 @@ export default function Skills() {
   }, []);
 
   if (loading) {
-      return <Loading type="skills"/>
-    }
+    return <Loading type="skills"/>
+  }
 
   if (error) {
     return <div className="text-red-500 text-center">{error}</div>;
@@ -52,6 +54,7 @@ export default function Skills() {
               <div
                 className="bg-gradient-to-r from-emerald-400 to-purple-500 h-2.5 rounded-full transition-all duration-1000"
                 style={{ width: `${skill.level}%` }}
+                aria-label={`Niveau de compétence pour ${skill.name} à ${skill.level}%`}
               ></div>
             </div>
             <p className="text-gray-300">Niveau: {skill.level}%</p>
@@ -61,4 +64,3 @@ export default function Skills() {
     </div>
   );
 }
-
