@@ -4,8 +4,8 @@ import Footer from '../components/Footer'
 import BackgroundAnimation from '../components/BackgroundAnimation'
 
 export const metadata = {
-  title: 'Mon Portfolio',
-  description: 'Portfolio de développeur web',
+  title: 'Portfolio de Léomyre',
+  description: 'Portfolio du développeur Léomyre',
 }
 
 export default function RootLayout({ children }) {
