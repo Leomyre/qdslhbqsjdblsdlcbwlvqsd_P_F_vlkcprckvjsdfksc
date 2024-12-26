@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { PaperClipIcon, AcademicCapIcon } from '@heroicons/react/24/solid'; // Import des icônes
+import { PaperClipIcon, AcademicCapIcon } from '@heroicons/react/24/solid';
 import UrlConfig from '../util/config';
 import Loading from '@/components/Loading';
+import Testimonials from '@/components/Testimonials';
+import FavoriteTechnologies from '@/components/FavoriteTechnologies';
 
 export default function Home() {
   const [users, setUsers] = useState([]);
@@ -64,7 +66,7 @@ export default function Home() {
         )}
 
         {/* Boutons d'action */}
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="flex flex-wrap justify-center gap-6 mb-8">
           <Link 
             href="/projects" 
             className="flex items-center bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
@@ -82,6 +84,10 @@ export default function Home() {
             Mes compétences
           </Link>
         </div>
+
+        {/* Nouvelles sections */}
+        <FavoriteTechnologies />
+        {/* <Testimonials /> */}
       </div>
     </div>
   );

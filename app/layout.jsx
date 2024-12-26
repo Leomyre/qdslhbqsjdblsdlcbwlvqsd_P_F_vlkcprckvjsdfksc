@@ -2,6 +2,8 @@ import './globals.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import BackgroundAnimation from '../components/BackgroundAnimation'
+import ScrollToTop from '../components/ScrollToTop'
+import ParallaxBackground from '../components/ParallaxBackground'
 
 export const metadata = {
   title: 'Portfolio de Léomyre',
@@ -11,7 +13,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <body className="flex flex-col min-h-screen text-white bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800">
+      <body className="flex flex-col min-h-screen text-white">
+        <ParallaxBackground />
         <BackgroundAnimation />
         <div className="flex-grow container mx-auto px-4 py-8 relative z-10">
           <Header />
@@ -20,6 +23,7 @@ export default function RootLayout({ children }) {
           </main>
         </div>
         <Footer />
+        <ScrollToTop />
       </body>
     </html>
   )
