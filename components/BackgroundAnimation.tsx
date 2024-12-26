@@ -29,14 +29,14 @@ const BackgroundAnimation = () => {
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         radius: Math.random() * 2 + 1,
-        vx: (Math.random() - 0.5) * 2,
-        vy: (Math.random() - 0.5) * 2
+        vx: (Math.random() - 0.5) * 1,
+        vy: (Math.random() - 0.5) * 1
       })
     }
 
     function draw() {
   if (ctx && canvas) {  // Vérifie si ctx est non-null avant d'utiliser ses méthodes
-    ctx.fillStyle = 'rgba(20, 0, 30, 0.1)';
+    ctx.fillStyle = 'rgba(10, 25, 50, 0.1)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     particles.forEach(particle => {
@@ -49,8 +49,8 @@ const BackgroundAnimation = () => {
         particle.y,
         particle.radius
       );
-      gradient.addColorStop(0, 'rgba(106, 27, 154, 0.5)');
-      gradient.addColorStop(1, 'rgba(0, 150, 136, 0)');
+      gradient.addColorStop(0, 'rgba(70, 130, 180, 0.5)');
+      gradient.addColorStop(1, 'rgba(30, 60, 90, 0)');
       ctx.fillStyle = gradient;
       ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
       ctx.fill();

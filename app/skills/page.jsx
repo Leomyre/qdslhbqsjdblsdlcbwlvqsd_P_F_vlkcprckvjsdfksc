@@ -39,20 +39,20 @@ export default function Skills() {
   }
 
   return (
-    <div className="bg-purple-900/30 p-8 rounded-lg backdrop-filter backdrop-blur-lg shadow-xl border border-purple-500/20">
-      <h2 className="text-4xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-purple-400">
+    <div className="bg-gray-800/30 p-8 rounded-lg backdrop-filter backdrop-blur-lg shadow-xl border border-gray-700/20">
+      <h2 className="text-4xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-gray-100">
         Mes Compétences
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {skills.map(skill => (
           <div 
             key={skill.id} 
-            className="bg-purple-800/30 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-500/20 hover:border-emerald-500/20"
+            className="bg-gray-700/30 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-600/20 hover:border-blue-500/20"
           >
-            <h3 className="text-2xl font-semibold mb-3 text-emerald-300">{skill.name}</h3>
-            <div className="w-full bg-purple-900/50 rounded-full h-2.5 mb-4">
+            <h3 className="text-2xl font-semibold mb-3 text-blue-300">{skill.name}</h3>
+            <div className="w-full bg-gray-800/50 rounded-full h-2.5 mb-4">
               <div
-                className="bg-gradient-to-r from-emerald-400 to-purple-500 h-2.5 rounded-full transition-all duration-1000"
+                className="bg-gradient-to-r from-blue-400 to-gray-500 h-2.5 rounded-full transition-all duration-1000"
                 style={{ width: `${skill.level}%` }}
                 aria-label={`Niveau de compétence pour ${skill.name} à ${skill.level}%`}
               ></div>
@@ -64,3 +64,4 @@ export default function Skills() {
     </div>
   );
 }
+
